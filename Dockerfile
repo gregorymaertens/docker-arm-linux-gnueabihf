@@ -8,3 +8,10 @@ RUN apt-get --quiet --yes update && \
     rm -rf /var/lib/apt/lists* /tmp/* /var/tmp/*
 
 env CROSS_COMPILE arm-linux-gnueabihf-
+
+# install python-dev and pip
+RUN apt-get update && apt-get install -y --no-install-recommends python-setuptools python-dev build-essential
+RUN easy_install pip 
+
+#install aws cli
+RUN pip install awscli
